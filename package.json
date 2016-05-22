@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Better stream-watching experience for League of Legends",
   "scripts": {
-    "start": "node server.js",
+    "start": "node node_modules\\webpack-dev-server\\bin\\webpack-dev-server.js --hot --inline --port=3000",
     "lint": "eslint src"
   },
   "repository": {
