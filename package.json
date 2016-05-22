@@ -1,32 +1,31 @@
 {
-  "name": "react-hot-boilerplate",
+  "name": "better-streams",
   "version": "1.0.0",
-  "description": "Boilerplate for ReactJS project with hot code reloading",
+  "description": "Better stream-watching experience for League of Legends",
   "scripts": {
     "start": "node server.js",
     "lint": "eslint src"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gaearon/react-hot-boilerplate.git"
+    "url": "https://github.com/gaearon/better-streams.git"
   },
   "keywords": [
     "react",
     "reactjs",
-    "boilerplate",
-    "hot",
-    "reload",
-    "hmr",
-    "live",
-    "edit",
-    "webpack"
+    "stream",
+    "league",
+    "legends",
+    "lol",
+    "twitch",
+    "twitchtv"
   ],
-  "author": "Dan Abramov <dan.abramov@me.com> (http://github.com/gaearon)",
+  "author": "Caleb Jares <cable729@gmail.com> (http://github.com/cable729)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/gaearon/react-hot-boilerplate/issues"
+    "url": "https://github.com/cable729/better-streams/issues"
   },
-  "homepage": "https://github.com/gaearon/react-hot-boilerplate",
+  "homepage": "https://github.com/cable729/better-streams",
   "devDependencies": {
     "babel-core": "^6.0.20",
     "babel-eslint": "^6.0.4",
