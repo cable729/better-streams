@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "Better stream-watching experience for League of Legends",
   "scripts": {
-    "start": "node node_modules\\webpack-dev-server\\bin\\webpack-dev-server.js --hot --inline --port=3000",
+    "start": "./node_modules/.bin/babel-node src/server.js",
+    "dev": "node node_modules\\webpack-dev-server\\bin\\webpack-dev-server.js --hot --inline --port=3000",
     "lint": "eslint src"
   },
   "repository": {
@@ -40,6 +41,9 @@
     "webpack-dev-server": "^1.12.1"
   },
   "dependencies": {
+    "babel-cli": "^6.9.0",
+    "ejs": "^2.4.2",
+    "express": "^4.13.4",
     "react": "^15.1.0",
     "react-dom": "^15.1.0"
   }
