@@ -42,9 +42,12 @@
   },
   "dependencies": {
     "babel-cli": "^6.9.0",
+    "babel-plugin-syntax-async-functions": "^6.8.0",
+    "babel-plugin-transform-regenerator": "^6.9.0",
     "ejs": "^2.4.2",
     "express": "^4.13.4",
     "react": "^15.1.0",
-    "react-dom": "^15.1.0"
+    "react-dom": "^15.1.0",
+    "request-promise": "^3.0.0"
   }
 }
