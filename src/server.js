@@ -14,7 +14,7 @@ app.get('/', (req, res) => {
 
 streams(app);
 
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 5000;
 
 const server = app.listen(port, () => {
   let host = server.address().address;
