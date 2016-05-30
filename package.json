@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "Better stream-watching experience for League of Legends",
   "scripts": {
-    "start": "nodemon --watch src --exec babel-node src/server.js",
-    "debug": "nodemon --watch src --exec babel-node src/server.js --debug",
+    "start": "nodemon --watch src/server --exec babel-node src/server/index.js",
+    "debug": "nodemon --watch src/server --exec babel-node src/server/index.js --debug",
     "test": "mocha src/**/*.tests.js --compilers js:babel-register",
     "dev": "node node_modules\\webpack-dev-server\\bin\\webpack-dev-server.js --hot --inline --port=3000",
     "lint": "eslint src"
