@@ -25,6 +25,9 @@
   ],
   "author": "Caleb Jares <cable729@gmail.com> (http://github.com/cable729)",
   "license": "MIT",
+  "engines": {
+    "node": "6.2.0"
+  },
   "bugs": {
     "url": "https://github.com/cable729/better-streams/issues"
   },
