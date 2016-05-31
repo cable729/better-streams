@@ -1,11 +1,20 @@
 const streamerMap = {
 	aphromoo: [
-		442232 // aphromoo
+		{ name: 'aphromoo', id: 442232 }
 	],
-	nightblue3: ['nightblue3', 'nightblack3'],
-	imaqtpie: ['imaqtpie'],
+	tsm_bjergsen: [
+		{ name: 'two and three' },
+		{ name: 'bjergsen' },
+	],
+	nightblue3: [
+		{ name: 'nightblue3' },
+		{ name: 'nightblack3' }
+	],
+	imaqtpie: [
+		{ name: 'imaqtpie' }
+	],
 	wingsofdeath: [
-		53742348 // wingsofdeath
+		{ name: 'wingsofdeath', id: 53742348 }
 	]
 };
 

@@ -4,6 +4,7 @@ function getFormattedGameInfo(gameInfo, summonerId) {
 	const participant = gameInfo.participants.find(x => x.summonerId === summonerId);
 
 	return {
+		summonerName: participant.summonerName,
 		startTime: gameInfo.gameStartTime,
 		gameMode: gameInfo.gameMode,
 		gameType: gameInfo.gameType,
@@ -22,7 +23,8 @@ export default class SummonerService {
 		// todo: check for type of error
 		if (res.error) return undefined;
 
-		return res[summonerName].id;
+		const nameWithoutSpaces = summonerName.replace(/\s/g, '');
+		return res[nameWithoutSpaces].id;
 	}
 
 	async getCurrentGameBySummonerId(summonerId) {

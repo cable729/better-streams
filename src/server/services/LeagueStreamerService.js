@@ -1,5 +1,6 @@
 import SummonerService from './SummonerService';
 import StreamService from './StreamService';
+import streamerMap from '../data/streamerMap';
 
 export default class LeagueStreamerService {
 	constructor() {
@@ -7,15 +8,29 @@ export default class LeagueStreamerService {
 		this.streamService = new StreamService();
 	}
 
-	async getSummonerNameForStreamer(streamerName) {
-		// dumb for now
-		return streamerName;
+	async getSummonerNamesForStreamer(streamerName) {
+		const matchedStreamer = streamerMap[streamerName];
+
+		if (!matchedStreamer) {
+			// take a guess at their name!
+			return [streamerName];
+		}
+
+		return matchedStreamer.map(x => x.name);
 	}
 
 	async getCurrentGameForStreamer(streamerName) {
-		const summonerName = await this.getSummonerNameForStreamer(streamerName);
+		const summonerNames = await this.getSummonerNamesForStreamer(streamerName);
+		
+		let game = null;
 
-		return await this.summonerService.getCurrentGameBySummonerName(summonerName);
+		for (let name of summonerNames) {
+			game = await this.summonerService.getCurrentGameBySummonerName(name);
+			// Assume that streamers aren't playing on multiple accounts at the same time
+			if (game) return game;
+		}
+
+		return game;
 	}
 
 	async getStreamAndGameInfoForStreamer(streamerName) {
@@ -24,7 +39,7 @@ export default class LeagueStreamerService {
 
 		return {
 			stream: streamInfo,
-			game: gameInfo
+			currentGame: gameInfo
 		};
 	}
 }

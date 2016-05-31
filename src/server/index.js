@@ -1,6 +1,7 @@
 import express from 'express';
 import { TWITCH_API_KEY } from './.secrets';
 import streams from './routes/streams';
+import games from './routes/games';
 import path from 'path';
 
 const app = express();
@@ -14,7 +15,9 @@ app.get('/', (req, res) => {
 	});
 });
 
+// add routes
 streams(app);
+games(app);
 
 const port = process.env.PORT || 5000;
 

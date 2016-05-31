@@ -25,7 +25,7 @@ export default class StreamService {
 		if (res.statusCode) {
 			if (res.statusCode === 422 || res.statusCode === 404) {
 				// channel does not exist
-				return undefined;
+				return null;
 			}
 			throw Error(`Unable to connect to Twitch API. Resulted in error code ${res.statusCode}`);
 		}
