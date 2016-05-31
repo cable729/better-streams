@@ -1,6 +1,8 @@
 const request = require('request-promise');
 import { RIOT_API_KEY } from '../.secrets';
 import streamerMap from '../data/streamerMap';
+import RiotApi from '../data/RiotApi';
+import SummonerService from '../services/SummonerService';
 
 async function getGameForSummonerId(summonerId) {
 	const options = {
@@ -110,21 +112,20 @@ export default function(app) {
 
 		res.json(await getGameForSummonerId(id));
 	});
-	
-	app.get('/api/sum/:nums', async (req, res) => {
-		const nums = req.params.nums;
-		
-		let splitNums = nums.split(',');
-		let sum = 0;
-		
-		for (let c of splitNums) {
-			const asInt = parseInt(c);
-			sum += asInt;
-		}
-		
-		res.json({
-			numbers: splitNums,
-			sum: sum
-		});
-	})
+
+	app.get('/api/summoners/:name', async (req, res) => {
+		const name = req.params.name;
+		const api = new RiotApi();
+
+		res.json(await api.getSummoner(name));
+	});
+
+	app.get('/api/summoners/:name/id', async (req, res) => {
+		const name = req.params.name;
+		const summonerService = new SummonerService();
+
+		let id = await summonerService.getSummonerId(name);
+
+		res.json(id);
+	});
 };
