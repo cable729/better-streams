@@ -11,7 +11,7 @@ function getErrorResponse(err) {
 export default class RiotApi {
 	async getSummoner(summonerName) {
 		const options = {
-			uri: `https://na.api.pvp.net/api/lol/na/v2.2/summoner/by-name/${summonerName}`,
+			uri: `https://na.api.pvp.net/api/lol/na/v1.4/summoner/by-name/${summonerName}`,
 			qs: { api_key: RIOT_API_KEY }
 		}
 		try {

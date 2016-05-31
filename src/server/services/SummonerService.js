@@ -10,6 +10,6 @@ export default class SummonerService {
 
 		if (res.error) return undefined;
 
-		return res[summonerName].summonerId;
+		return res[summonerName].id;
 	}
 }
