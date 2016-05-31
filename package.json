@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Better stream-watching experience for League of Legends",
   "scripts": {
-    "start": "cross-env PORT=80 NODE_ENV=production nodemon dist/index.js",
+    "start": "cross-env NODE_ENV=production nodemon dist/index.js",
     "build": "npm run build-server && npm run build-client",
     "build-server": "babel -D src/server -d dist/",
     "build-client": "cross-env NODE_ENV=production webpack src/client/index.js",
