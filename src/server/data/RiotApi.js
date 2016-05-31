@@ -1,4 +1,4 @@
-import { RIOT_API_KEY } from '../.secrets';
+import { RIOT_API_KEY } from '../secrets';
 import request from 'request-promise';
 
 function getErrorResponse(err) {

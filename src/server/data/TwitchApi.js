@@ -1,4 +1,4 @@
-import { TWITCH_API_KEY } from '../.secrets';
+import { TWITCH_API_KEY } from '../secrets';
 import request from 'request-promise';
 
 export default class TwitchApi {
