@@ -4,16 +4,24 @@ import streams from './routes/streams';
 import games from './routes/games';
 import path from 'path';
 
+// If this is set, we want to build in production mode
+const isProd = process.env.NODE_ENV ? true : false;
+
 const app = express();
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
+const devBundleSrc = 'http://localhost:3000/static/bundle.js';
+const prodBundleSrc = '/bundle.js';
+
+// setup react app
 app.get('/', (req, res) => {
 	res.render('index', {
-		bundleSrc: 'http://localhost:3000/static/bundle.js'
+		bundleSrc: isProd ? prodBundleSrc : devBundleSrc
 	});
 });
+app.use(express.static(path.join(__dirname, 'public')));
 
 // add routes
 streams(app);
