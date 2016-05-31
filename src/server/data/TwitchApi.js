@@ -1,5 +1,6 @@
-import { TWITCH_API_KEY } from '../secrets';
 import request from 'request-promise';
+
+const TWITCH_API_KEY = process.env.TWITCH_API_KEY;
 
 export default class TwitchApi {
 	async getStreamerInfo(name) {

@@ -1,4 +1,3 @@
-import { RIOT_API_KEY } from '../secrets';
 import request from 'request-promise';
 
 function getErrorResponse(err) {
@@ -7,6 +6,8 @@ function getErrorResponse(err) {
 		status: JSON.parse(err.error).status
 	};
 }
+
+const RIOT_API_KEY = process.env.RIOT_API_KEY;
 
 export default class RiotApi {
 	async getSummoner(summonerName) {

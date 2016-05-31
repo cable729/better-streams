@@ -1,8 +1,10 @@
 import express from 'express';
-import { TWITCH_API_KEY } from './secrets';
 import streams from './routes/streams';
 import games from './routes/games';
 import path from 'path';
+
+// Load environment variables
+require('dotenv').config();
 
 // If this is set, we want to build in production mode
 const isProd = process.env.NODE_ENV ? true : false;
