@@ -21,6 +21,9 @@ const prodPlugins = [
   })
 ];
 
+const devJsLoaders = ['react-hot', 'babel'];
+const prodJsLoaders = ['babel'];
+
 
 module.exports = {
   devtool: isProd ? undefined : 'eval-source-map',
@@ -34,7 +37,7 @@ module.exports = {
   module: {
     loaders: [{
       test: /\.js$/,
-      loaders: ['react-hot', 'babel'],
+      loaders: isProd ? prodJsLoaders : devJsLoaders,
       include: path.join(__dirname, 'src')
     }]
   }
