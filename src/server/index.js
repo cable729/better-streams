@@ -1,10 +1,12 @@
 import express from 'express';
 import { TWITCH_API_KEY } from './.secrets';
 import streams from './routes/streams';
+import path from 'path';
 
 const app = express();
 
 app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
 
 app.get('/', (req, res) => {
 	res.render('index', {
