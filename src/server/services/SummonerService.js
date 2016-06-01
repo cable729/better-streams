@@ -12,6 +12,12 @@ function getFormattedGameInfo(gameInfo, summonerId) {
 	};
 }
 
+function getCleanSummonerName(name) {
+	const nameWithoutSpaces = name.replace(/\s/g, '');
+	// todo: test this extensively
+	return nameWithoutSpaces.toLocaleLowerCase();
+}
+
 export default class SummonerService {
 	constructor() {
 		this.api = new RiotApi();
@@ -23,8 +29,8 @@ export default class SummonerService {
 		// todo: check for type of error
 		if (res.error) return undefined;
 
-		const nameWithoutSpaces = summonerName.replace(/\s/g, '');
-		return res[nameWithoutSpaces].id;
+		const cleanName = getCleanSummonerName(summonerName);
+		return res[cleanName].id;
 	}
 
 	async getCurrentGameBySummonerId(summonerId) {

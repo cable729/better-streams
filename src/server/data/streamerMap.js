@@ -15,6 +15,15 @@ const streamerMap = {
 	],
 	wingsofdeath: [
 		{ name: 'wingsofdeath', id: 53742348 }
+	],
+	tsm_theoddone: [
+		{ name: 'pickagodandpray', id: 465413 }
+	],
+	mushisgosu: [
+		{ name: 'hi im gosu', id: 23557909 }
+	],
+	flosd: [
+		{ name: 'hawaii funk' }
 	]
 };
 

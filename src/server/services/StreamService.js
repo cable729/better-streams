@@ -1,16 +1,15 @@
 import TwitchApi from '../data/TwitchApi';
 
-function getFormattedStreamerInfo(info) {
-	if (info.stream === null) return null;
-
+function getFormattedStreamerInfo(stream) {
 	return {
-		title: info.stream.channel.status,
-		startTime: info.stream.created_at,
-		viewers: info.stream.viewers,
-		videoHeight: info.stream.video_height,
-		delay: info.stream.delay,
-		averageFps: info.stream.average_fps,
-		previewTemplate: info.stream.preview.template
+		name: stream.channel.display_name,
+		title: stream.channel.status,
+		startTime: stream.created_at,
+		viewers: stream.viewers,
+		videoHeight: stream.video_height,
+		delay: stream.delay,
+		averageFps: stream.average_fps,
+		previewTemplate: stream.preview.template
 	};
 }
 
@@ -30,6 +29,17 @@ export default class StreamService {
 			throw Error(`Unable to connect to Twitch API. Resulted in error code ${res.statusCode}`);
 		}
 
-		return getFormattedStreamerInfo(res);
+		return getFormattedStreamerInfo(res.stream);
+	}
+
+	async getCurrentTopStreamersInfo(gameName) {
+		const res = await this.api.getStreamsByGame(gameName);
+
+		if (res.statusCode) {
+			throw Error(`Unable to connect to Twitch API. Resulted in error code ${res.statusCode}`);
+		}
+
+		// return res.streams;
+		return res.streams.map(x => getFormattedStreamerInfo(x));
 	}
 }
